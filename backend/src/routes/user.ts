@@ -5,7 +5,7 @@ import { decode, sign, verify } from 'hono/jwt'
 
 export const userRouter = new Hono<{
     Bindings: {
-      DATABASE_URL : string
+      PRISMA_ACCELERATE_URL : string
       JWT_SECRET:string
     }
   }>();
@@ -15,7 +15,7 @@ export const userRouter = new Hono<{
 userRouter.post('/signup', async (c) => {
 
     const prisma = new PrismaClient({
-        datasourceUrl: c.env.DATABASE_URL,
+        datasourceUrl: c.env.PRISMA_ACCELERATE_URL,
     }).$extends(withAccelerate())
 
 
@@ -44,7 +44,7 @@ userRouter.post('/signup', async (c) => {
 userRouter.post('/signin', async(c) => {
     const prisma = new PrismaClient({
         //@ts-ignore
-        datasourceUrl : c.env.DATABASE_URL,
+        datasourceUrl : c.env.PRISMA_ACCELERATE_URL,
     }).$extends(withAccelerate())
 
     const body = await c.req.json();
