@@ -9,10 +9,17 @@ const Blogs = () => {
   if(loading) {
     return(
       <div>
-        <BlogSkeleton/>
-        <BlogSkeleton/>
-        <BlogSkeleton/>
-        <BlogSkeleton/>
+        <AppBar/>
+        <div className="flex justify-center">
+          <div>
+            <BlogSkeleton/>
+            <BlogSkeleton/>
+            <BlogSkeleton/>
+            <BlogSkeleton/>
+            <BlogSkeleton/>
+            <BlogSkeleton/>
+          </div>
+        </div>
       </div>
     )
   }

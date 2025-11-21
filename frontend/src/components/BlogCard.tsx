@@ -15,7 +15,6 @@ const BlogCard = ({id, authorName, title, content, publishedDate} : BlogCardProp
     <Link to={`/blog/${id}`}>
 
     <div className="p-4 border-b w-screen max-w-screen-md cursor-pointer pb-4 border-blue-300">
-        
         <div className="flex pb-2">
             <div className="flex justify-center flex-col">
                 <Avatar name={authorName} />
