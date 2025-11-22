@@ -65,8 +65,8 @@ userRouter.post('/signin', async(c) => {
         }
     })
     if(!user){
-        c.status(403)
-        return c.json({error:"Incorrect Email or Password"})
+        c.status(411)
+        return c.json({message:"Incorrect Email or Password"})
     }
     const token = await sign({id:user.id},c.env.JWT_SECRET)
     return c.json({token})

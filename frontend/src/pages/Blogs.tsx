@@ -1,10 +1,27 @@
 import AppBar from "../components/AppBar"
 import BlogCard from "../components/BlogCard"
 import BlogSkeleton from "../components/BlogSkeleton";
+import RegsterCard from "../components/RegsterCard";
 import { useBlogs } from "../hooks"
 
 const Blogs = () => {
-  const {loading, blogs} = useBlogs();
+  const {loading, blogs, error} = useBlogs();
+
+
+  if(error){
+    return(
+    <div className="flex flex-col min-h-screen">
+      <div>
+        <AppBar/>
+      </div>
+
+      <div className="flex justify-center items-center flex-1">
+        <RegsterCard/>
+      </div>
+
+    </div>
+    )
+  }
 
   if(loading) {
     return(
